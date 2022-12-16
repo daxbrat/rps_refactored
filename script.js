@@ -28,32 +28,31 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection === "rock" && computerSelection === "paper") ||
     (playerSelection === "paper" && computerSelection === "scissors") ||
     (playerSelection === "scissors" && computerSelection === "rock")
-  ) {
+  )
     computerScore++;
-    return "You Lose! Paper beats Rock";
+  return `You Lose! ${computerSelection} beats ${playerSelection}`;
+}
+
+function game() {
+  for (let i = 0; i < 5; i++) {
+    computerSelection = getComputerChoice();
+    computerSelection = computerSelection.toLocaleLowerCase();
+    console.log("Computer:", computerSelection);
+
+    playerSelection = prompt("Rock, Paper or Scissors?");
+    playerSelection = playerSelection.toLowerCase();
+    console.log("You:", playerSelection);
+
+    console.log(playRound(playerSelection, computerSelection));
+    console.log("Computer Score:", computerScore);
+    console.log("Player Score:", playerScore);
   }
-
-  function game() {
-    for (let i = 0; i < 5; i++) {
-      computerSelection = getComputerChoice();
-      computerSelection = computerSelection.toLocaleLowerCase();
-      console.log("Computer:", computerSelection);
-
-      playerSelection = prompt("Rock, Paper or Scissors?");
-      playerSelection = playerSelection.toLowerCase();
-      console.log("You:", playerSelection);
-
-      console.log(playRound(playerSelection, computerSelection));
-      console.log("Computer Score:", computerScore);
-      console.log("Player Score:", playerScore);
-    }
-    if (computerScore > playerScore) {
-      console.log("Computer Won!!!");
-    } else if (playerScore > computerScore) {
-      console.log("You Won!!!");
-    } else {
-      console.log("The Game is a Tie!!!");
-    }
+  if (computerScore > playerScore) {
+    console.log("Computer Won!!!");
+  } else if (playerScore > computerScore) {
+    console.log("You Won!!!");
+  } else {
+    console.log("The Game is a Tie!!!");
   }
 }
 
