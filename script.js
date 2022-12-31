@@ -39,8 +39,8 @@ function game() {
     computerSelection = computerSelection.toLocaleLowerCase();
     console.log("Computer:", computerSelection);
 
-    playerSelection = prompt("Rock, Paper or Scissors?");
-    playerSelection = playerSelection.toLowerCase();
+    // playerSelection = prompt("Rock, Paper or Scissors?");
+    // playerSelection = playerSelection.toLowerCase();
     console.log("You:", playerSelection);
 
     console.log(playRound(playerSelection, computerSelection));
@@ -55,5 +55,17 @@ function game() {
     console.log("The Game is a Tie!!!");
   }
 }
+
+const button1 = document.createElement("button");
+button1.textContent = "Rock";
+document.body.appendChild(button1);
+
+const button2 = document.createElement("button");
+button2.textContent = "Paper";
+document.body.appendChild(button2);
+
+const button3 = document.createElement("button");
+button3.textContent = "Scissors";
+document.body.appendChild(button3);
 
 game();
