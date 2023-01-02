@@ -34,38 +34,52 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-  for (let i = 0; i < 5; i++) {
-    computerSelection = getComputerChoice();
-    computerSelection = computerSelection.toLocaleLowerCase();
-    console.log("Computer:", computerSelection);
+  // for (let i = 0; i < 5; i++) {
 
-    // playerSelection = prompt("Rock, Paper or Scissors?");
-    // playerSelection = playerSelection.toLowerCase();
-    console.log("You:", playerSelection);
+  const button1 = document.createElement("button");
+  button1.textContent = "Rock";
+  document.body.appendChild(button1);
 
-    console.log(playRound(playerSelection, computerSelection));
-    console.log("Computer Score:", computerScore);
-    console.log("Player Score:", playerScore);
-  }
-  if (computerScore > playerScore) {
-    console.log("Computer Won!!!");
-  } else if (playerScore > computerScore) {
-    console.log("You Won!!!");
-  } else {
-    console.log("The Game is a Tie!!!");
-  }
+  const button2 = document.createElement("button");
+  button2.textContent = "Paper";
+  document.body.appendChild(button2);
+
+  const button3 = document.createElement("button");
+  button3.textContent = "Scissors";
+  document.body.appendChild(button3);
+
+  // add event listeners to the buttons
+  button1.addEventListener("click", function () {
+    playerSelection = "rock";
+  });
+
+  button2.addEventListener("click", function () {
+    playerSelection = "paper";
+  });
+
+  button3.addEventListener("click", function () {
+    playerSelection = "scissors";
+  });
+
+  computerSelection = getComputerChoice();
+  computerSelection = computerSelection.toLocaleLowerCase();
+  console.log("Computer:", computerSelection);
+
+  // playerSelection = prompt("Rock, Paper or Scissors?");
+  // playerSelection = playerSelection.toLowerCase();
+  console.log("You:", playerSelection);
+
+  console.log(playRound(playerSelection, computerSelection));
+  console.log("Computer Score:", computerScore);
+  console.log("Player Score:", playerScore);
 }
-
-const button1 = document.createElement("button");
-button1.textContent = "Rock";
-document.body.appendChild(button1);
-
-const button2 = document.createElement("button");
-button2.textContent = "Paper";
-document.body.appendChild(button2);
-
-const button3 = document.createElement("button");
-button3.textContent = "Scissors";
-document.body.appendChild(button3);
+if (computerScore > playerScore) {
+  console.log("Computer Won!!!");
+} else if (playerScore > computerScore) {
+  console.log("You Won!!!");
+} else {
+  console.log("The Game is a Tie!!!");
+}
+// }
 
 game();
