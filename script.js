@@ -51,40 +51,6 @@ function game() {
     computerSelection = computerSelection.toLowerCase();
 
     // add event listeners to the buttons
-    const div = document.createElement("div");
-    button1.addEventListener("click", function () {
-      playerSelection = "rock";
-
-      const para = document.createElement("p");
-      para.textContent = playRound(playerSelection, computerSelection);
-      document.body.appendChild(para);
-      const scorePara = document.createElement("p");
-      scorePara.textContent = `Computer Score: ${computerScore}
-    Player Score: ${playerScore}`;
-      document.body.appendChild(scorePara);
-    });
-
-    button2.addEventListener("click", function () {
-      playerSelection = "paper";
-      const para = document.createElement("p");
-      para.textContent = playRound(playerSelection, computerSelection);
-      document.body.appendChild(para);
-      const scorePara = document.createElement("p");
-      scorePara.textContent = `Computer Score: ${computerScore}
-    Player Score: ${playerScore}`;
-      document.body.appendChild(scorePara);
-    });
-
-    button3.addEventListener("click", function () {
-      playerSelection = "scissors";
-      const para = document.createElement("p");
-      para.textContent = playRound(playerSelection, computerSelection);
-      document.body.appendChild(para);
-      const scorePara = document.createElement("p");
-      scorePara.textContent = `Computer Score: ${computerScore}
-    Player Score: ${playerScore}`;
-      document.body.appendChild(scorePara);
-    });
   }
   const endPara = document.createElement("p");
   if (computerScore > playerScore) {
@@ -98,5 +64,40 @@ function game() {
     document.body.appendChild(endPara);
   }
 }
+
+const div = document.createElement("div");
+button1.addEventListener("click", function () {
+  playerSelection = "rock";
+
+  const para = document.createElement("p");
+  para.textContent = playRound(playerSelection, computerSelection);
+  document.body.appendChild(para);
+  const scorePara = document.createElement("p");
+  scorePara.textContent = `Computer Score: ${computerScore}
+    Player Score: ${playerScore}`;
+  document.body.appendChild(scorePara);
+});
+
+button2.addEventListener("click", function () {
+  playerSelection = "paper";
+  const para = document.createElement("p");
+  para.textContent = playRound(playerSelection, computerSelection);
+  document.body.appendChild(para);
+  const scorePara = document.createElement("p");
+  scorePara.textContent = `Computer Score: ${computerScore}
+    Player Score: ${playerScore}`;
+  document.body.appendChild(scorePara);
+});
+
+button3.addEventListener("click", function () {
+  playerSelection = "scissors";
+  const para = document.createElement("p");
+  para.textContent = playRound(playerSelection, computerSelection);
+  document.body.appendChild(para);
+  const scorePara = document.createElement("p");
+  scorePara.textContent = `Computer Score: ${computerScore}
+    Player Score: ${playerScore}`;
+  document.body.appendChild(scorePara);
+});
 
 game();
