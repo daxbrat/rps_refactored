@@ -48,22 +48,32 @@ function game() {
 
   computerSelection = getComputerChoice();
   computerSelection = computerSelection.toLocaleLowerCase();
-  console.log("Computer:", computerSelection);
 
   // add event listeners to the buttons
+  const div = document.createElement("div");
   button1.addEventListener("click", function () {
     playerSelection = "rock";
-    console.log(playRound(playerSelection, computerSelection));
+    // console.log(playRound(playerSelection, computerSelection));
+
+    const para = document.createElement("p");
+    para.textContent = playRound(playerSelection, computerSelection);
+    document.body.appendChild(para);
   });
 
   button2.addEventListener("click", function () {
     playerSelection = "paper";
-    console.log(playRound(playerSelection, computerSelection));
+    // console.log(playRound(playerSelection, computerSelection));
+    const para = document.createElement("p");
+    para.textContent = playRound(playerSelection, computerSelection);
+    document.body.appendChild(para);
   });
 
   button3.addEventListener("click", function () {
     playerSelection = "scissors";
-    console.log(playRound(playerSelection, computerSelection));
+    // console.log(playRound(playerSelection, computerSelection));
+    const para = document.createElement("p");
+    para.textContent = playRound(playerSelection, computerSelection);
+    document.body.appendChild(para);
   });
 
   // playerSelection = prompt("Rock, Paper or Scissors?");
