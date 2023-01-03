@@ -49,17 +49,6 @@ function playRound(playerSelection, computerSelection) {
   return `You Lose! ${computerSelection} beats ${playerSelection}`;
 }
 
-// function game(playerSelection) {
-//   computerSelection = getComputerChoice();
-//   computerSelection = computerSelection.toLowerCase();
-//   const div = document.createElement("div");
-//   para.textContent = playRound(playerSelection, computerSelection);
-//   document.body.appendChild(para);
-//   const scorePara = document.createElement("p");
-//   scorePara.textContent = `Computer Score: ${computerScore} | Player Score: ${playerScore}`;
-//   document.body.appendChild(scorePara);
-// }
-
 // add event listeners to the buttons
 
 button1.addEventListener("click", function () {
