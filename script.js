@@ -52,7 +52,7 @@ function playRound(playerSelection, computerSelection) {
 // add event listeners to the buttons
 
 button1.addEventListener("click", function () {
-  if (counter !== 5) {
+  if (computerScore !== 5 && playerScore !== 5) {
     computerSelection = getComputerChoice();
     computerSelection = computerSelection.toLowerCase();
     playerSelection = "rock";
@@ -68,7 +68,7 @@ button1.addEventListener("click", function () {
 });
 
 button2.addEventListener("click", function () {
-  if (counter !== 5) {
+  if (computerScore !== 5 && playerScore !== 5) {
     computerSelection = getComputerChoice();
     computerSelection = computerSelection.toLowerCase();
 
@@ -84,7 +84,7 @@ button2.addEventListener("click", function () {
 });
 
 button3.addEventListener("click", function () {
-  if (counter !== 5) {
+  if (computerScore !== 5 && playerScore !== 5) {
     computerSelection = getComputerChoice();
     computerSelection = computerSelection.toLowerCase();
 
@@ -100,16 +100,13 @@ button3.addEventListener("click", function () {
 });
 
 function endGame() {
-  if (counter === 5) {
+  if (computerScore === 5 || playerScore === 5) {
     const endPara = document.createElement("p");
-    if (computerScore > playerScore) {
+    if (computerScore === 5) {
       endPara.textContent = "Computer Won!!!";
       document.body.appendChild(endPara);
-    } else if (playerScore > computerScore) {
-      endPara.textContent = "You Won!!!";
-      document.body.appendChild(endPara);
     } else {
-      endPara.textContent = "The Game is a Tie!!!";
+      endPara.textContent = "You Won!!!";
       document.body.appendChild(endPara);
     }
   }
