@@ -29,6 +29,7 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
+    counter++;
     return "Tie";
   } else if (
     (playerSelection === "rock" && computerSelection === "scissors") ||
@@ -48,68 +49,79 @@ function playRound(playerSelection, computerSelection) {
   return `You Lose! ${computerSelection} beats ${playerSelection}`;
 }
 
-function game(playerSelection) {
-  computerSelection = getComputerChoice();
-  computerSelection = computerSelection.toLowerCase();
-  const div = document.createElement("div");
-  para.textContent = playRound(playerSelection, computerSelection);
-  document.body.appendChild(para);
-  const scorePara = document.createElement("p");
-  scorePara.textContent = `Computer Score: ${computerScore} | Player Score: ${playerScore}`;
-  document.body.appendChild(scorePara);
-}
-
-if (counter === 5) {
-  const endPara = document.createElement("p");
-  if (computerScore > playerScore) {
-    endPara.textContent = "Computer Won!!!";
-    document.body.appendChild(endPara);
-  } else if (playerScore > computerScore) {
-    endPara.textContent = "You Won!!!";
-    document.body.appendChild(endPara);
-  } else {
-    endPara.textContent = "The Game is a Tie!!!";
-    document.body.appendChild(endPara);
-  }
-}
+// function game(playerSelection) {
+//   computerSelection = getComputerChoice();
+//   computerSelection = computerSelection.toLowerCase();
+//   const div = document.createElement("div");
+//   para.textContent = playRound(playerSelection, computerSelection);
+//   document.body.appendChild(para);
+//   const scorePara = document.createElement("p");
+//   scorePara.textContent = `Computer Score: ${computerScore} | Player Score: ${playerScore}`;
+//   document.body.appendChild(scorePara);
+// }
 
 // add event listeners to the buttons
 
 button1.addEventListener("click", function () {
-  computerSelection = getComputerChoice();
-  computerSelection = computerSelection.toLowerCase();
-  playerSelection = "rock";
+  if (counter !== 5) {
+    computerSelection = getComputerChoice();
+    computerSelection = computerSelection.toLowerCase();
+    playerSelection = "rock";
 
-  const para = document.createElement("p");
-  para.textContent = playRound(playerSelection, computerSelection);
-  document.body.appendChild(para);
-  const scorePara = document.createElement("p");
-  scorePara.textContent = `Computer Score: ${computerScore} | Player Score: ${playerScore}`;
-  document.body.appendChild(scorePara);
+    const para = document.createElement("p");
+    para.textContent = playRound(playerSelection, computerSelection);
+    document.body.appendChild(para);
+    const scorePara = document.createElement("p");
+    scorePara.textContent = `Computer Score: ${computerScore} | Player Score: ${playerScore}`;
+    document.body.appendChild(scorePara);
+    endGame();
+  }
 });
 
 button2.addEventListener("click", function () {
-  computerSelection = getComputerChoice();
-  computerSelection = computerSelection.toLowerCase();
+  if (counter !== 5) {
+    computerSelection = getComputerChoice();
+    computerSelection = computerSelection.toLowerCase();
 
-  playerSelection = "paper";
-  const para = document.createElement("p");
-  para.textContent = playRound(playerSelection, computerSelection);
-  document.body.appendChild(para);
-  const scorePara = document.createElement("p");
-  scorePara.textContent = `Computer Score: ${computerScore} | Player Score: ${playerScore}`;
-  document.body.appendChild(scorePara);
+    playerSelection = "paper";
+    const para = document.createElement("p");
+    para.textContent = playRound(playerSelection, computerSelection);
+    document.body.appendChild(para);
+    const scorePara = document.createElement("p");
+    scorePara.textContent = `Computer Score: ${computerScore} | Player Score: ${playerScore}`;
+    document.body.appendChild(scorePara);
+    endGame();
+  }
 });
 
 button3.addEventListener("click", function () {
-  computerSelection = getComputerChoice();
-  computerSelection = computerSelection.toLowerCase();
+  if (counter !== 5) {
+    computerSelection = getComputerChoice();
+    computerSelection = computerSelection.toLowerCase();
 
-  playerSelection = "scissors";
-  const para = document.createElement("p");
-  para.textContent = playRound(playerSelection, computerSelection);
-  document.body.appendChild(para);
-  const scorePara = document.createElement("p");
-  scorePara.textContent = `Computer Score: ${computerScore} | Player Score: ${playerScore}`;
-  document.body.appendChild(scorePara);
+    playerSelection = "scissors";
+    const para = document.createElement("p");
+    para.textContent = playRound(playerSelection, computerSelection);
+    document.body.appendChild(para);
+    const scorePara = document.createElement("p");
+    scorePara.textContent = `Computer Score: ${computerScore} | Player Score: ${playerScore}`;
+    document.body.appendChild(scorePara);
+    endGame();
+  }
 });
+
+function endGame() {
+  if (counter === 5) {
+    const endPara = document.createElement("p");
+    if (computerScore > playerScore) {
+      endPara.textContent = "Computer Won!!!";
+      document.body.appendChild(endPara);
+    } else if (playerScore > computerScore) {
+      endPara.textContent = "You Won!!!";
+      document.body.appendChild(endPara);
+    } else {
+      endPara.textContent = "The Game is a Tie!!!";
+      document.body.appendChild(endPara);
+    }
+  }
+}
