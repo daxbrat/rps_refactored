@@ -45,59 +45,61 @@ function playRound(playerSelection, computerSelection) {
   return `You Lose! ${computerSelection} beats ${playerSelection}`;
 }
 
-function game() {
-  for (let i = 0; i < 5; i++) {
+function game(playerSelection) {
+  computerSelection = getComputerChoice();
+  computerSelection = computerSelection.toLowerCase();
+  const div = document.createElement("div");
+  para.textContent = playRound(playerSelection, computerSelection);
+  document.body.appendChild(para);
+  const scorePara = document.createElement("p");
+  scorePara.textContent = `Computer Score: ${computerScore} | Player Score: ${playerScore}`;
+  document.body.appendChild(scorePara);
+}
+const endPara = document.createElement("p");
+if (computerScore > playerScore) {
+  endPara.textContent = "Computer Won!!!";
+  document.body.appendChild(endPara);
+} else if (playerScore > computerScore) {
+  endPara.textContent = "You Won!!!";
+  document.body.appendChild(endPara);
+} else {
+  endPara.textContent = "The Game is a Tie!!!";
+  document.body.appendChild(endPara);
+}
+
+for (let i = 0; i < 5; i++) {
+  // add event listeners to the buttons
+
+  button1.addEventListener("click", function () {
+    playerSelection = "rock";
+
+    const para = document.createElement("p");
+    game(playerSelection);
+  });
+
+  button2.addEventListener("click", function () {
     computerSelection = getComputerChoice();
     computerSelection = computerSelection.toLowerCase();
 
-    // add event listeners to the buttons
-  }
-  const endPara = document.createElement("p");
-  if (computerScore > playerScore) {
-    endPara.textContent = "Computer Won!!!";
-    document.body.appendChild(endPara);
-  } else if (playerScore > computerScore) {
-    endPara.textContent = "You Won!!!";
-    document.body.appendChild(endPara);
-  } else {
-    endPara.textContent = "The Game is a Tie!!!";
-    document.body.appendChild(endPara);
-  }
+    playerSelection = "paper";
+    const para = document.createElement("p");
+    para.textContent = playRound(playerSelection, computerSelection);
+    document.body.appendChild(para);
+    const scorePara = document.createElement("p");
+    scorePara.textContent = `Computer Score: ${computerScore} | Player Score: ${playerScore}`;
+    document.body.appendChild(scorePara);
+  });
+
+  button3.addEventListener("click", function () {
+    computerSelection = getComputerChoice();
+    computerSelection = computerSelection.toLowerCase();
+
+    playerSelection = "scissors";
+    const para = document.createElement("p");
+    para.textContent = playRound(playerSelection, computerSelection);
+    document.body.appendChild(para);
+    const scorePara = document.createElement("p");
+    scorePara.textContent = `Computer Score: ${computerScore} | Player Score: ${playerScore}`;
+    document.body.appendChild(scorePara);
+  });
 }
-
-const div = document.createElement("div");
-button1.addEventListener("click", function () {
-  playerSelection = "rock";
-
-  const para = document.createElement("p");
-  para.textContent = playRound(playerSelection, computerSelection);
-  document.body.appendChild(para);
-  const scorePara = document.createElement("p");
-  scorePara.textContent = `Computer Score: ${computerScore}
-    Player Score: ${playerScore}`;
-  document.body.appendChild(scorePara);
-});
-
-button2.addEventListener("click", function () {
-  playerSelection = "paper";
-  const para = document.createElement("p");
-  para.textContent = playRound(playerSelection, computerSelection);
-  document.body.appendChild(para);
-  const scorePara = document.createElement("p");
-  scorePara.textContent = `Computer Score: ${computerScore}
-    Player Score: ${playerScore}`;
-  document.body.appendChild(scorePara);
-});
-
-button3.addEventListener("click", function () {
-  playerSelection = "scissors";
-  const para = document.createElement("p");
-  para.textContent = playRound(playerSelection, computerSelection);
-  document.body.appendChild(para);
-  const scorePara = document.createElement("p");
-  scorePara.textContent = `Computer Score: ${computerScore}
-    Player Score: ${playerScore}`;
-  document.body.appendChild(scorePara);
-});
-
-game();
