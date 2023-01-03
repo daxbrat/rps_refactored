@@ -30,7 +30,7 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
     counter++;
-    return "Tie";
+    return `${counter}. Tie`;
   } else if (
     (playerSelection === "rock" && computerSelection === "scissors") ||
     (playerSelection === "paper" && computerSelection === "rock") ||
@@ -38,7 +38,7 @@ function playRound(playerSelection, computerSelection) {
   ) {
     playerScore++;
     counter++;
-    return `You Win! ${playerSelection} beats ${computerSelection}`;
+    return `${counter}. You Win! ${playerSelection} beats ${computerSelection}`;
   } else if (
     (playerSelection === "rock" && computerSelection === "paper") ||
     (playerSelection === "paper" && computerSelection === "scissors") ||
@@ -46,7 +46,7 @@ function playRound(playerSelection, computerSelection) {
   )
     computerScore++;
   counter++;
-  return `You Lose! ${computerSelection} beats ${playerSelection}`;
+  return `${counter}. You Lose! ${computerSelection} beats ${playerSelection}`;
 }
 
 // add event listeners to the buttons
