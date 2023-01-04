@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>Live Preview</title>
+  </head>
+  <body>
+    <div id="preview"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/1.1.1/marked.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const fileInput = document.getElementById('file-input');
+        const preview = document.getElementById('preview');
+
+        fileInput.addEventListener('input', () => {
+          const file = fileInput.files[0];
+          const reader = new FileReader();
+
+          reader.onload = event => {
+            preview.innerHTML = marked(event.target.result);
+          };
+
+          reader.readAsText(file);
+        });
+      });
+    </script>
+  </body>
+</html>
