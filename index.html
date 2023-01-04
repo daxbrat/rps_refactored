@@ -1,27 +1,12 @@
-<html>
-  <head>
-    <title>Live Preview</title>
-  </head>
-  <body>
-    <input type="file" id="file-input" />
-    <div id="preview"></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/1.1.1/marked.min.js"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const fileInput = document.getElementById('file-input');
-        const preview = document.getElementById('preview');
-
-        fileInput.addEventListener('input', () => {
-          const file = fileInput.files[0];
-          const reader = new FileReader();
-
-          reader.onload = event => {
-            preview.innerHTML = marked(event.target.result);
-          };
-
-          reader.readAsText(file);
-        });
-      });
-    </script>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="script.js"></script>
+</body>
 </html>
